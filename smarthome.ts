@@ -21,7 +21,7 @@ namespace smarthome {
     let Reference_VOLTAGE = 3100
 
     /**
-    * TODO: get soil moisture(0~100)
+    * TODO: get soil moisture(0~100%)
     * @param soilmoisturepin describe parameter here, eg: AnalogPin.P1
     */
     //% blockId="readsoilmoisture" block="read soil moisture(0~100) at pin %soilhumiditypin"
@@ -109,37 +109,77 @@ namespace smarthome {
             suml = suml / l
         }
         noise = sumh - suml
-        if (noise <= 28) {
+        if (noise <= 4) {
             noise = pins.map(
                 noise,
                 0,
-                28,
-                15,
+                4,
+                30,
+                50
+            )
+        } else if (noise <= 8) {
+            noise = pins.map(
+                noise,
+                4,
+                8,
+                50,
                 55
             )
-        } else if (noise <= 70) {
+        } else if (noise <= 14) {
             noise = pins.map(
                 noise,
-                28,
-                70,
+                9,
+                14,
                 55,
-                64
+                60
             )
-        } else if (noise <= 229) {
+        } else if (noise <= 32) {
             noise = pins.map(
                 noise,
+                15,
+                32,
+                60,
+                70
+            )
+        } else if (noise <= 60) {
+            noise = pins.map(
+                noise,
+                33,
+                60,
                 70,
-                229,
-                64,
-                76
+                75
             )
-        } else {
+        } else if (noise <= 100) {
             noise = pins.map(
                 noise,
-                229,
+                61,
+                100,
+                75,
+                80
+            )
+        } else if (noise <= 150) {
+            noise = pins.map(
+                noise,
+                101,
+                150,
+                80,
+                85
+            )
+        } else if (noise <= 231) {
+            noise = pins.map(
+                noise,
+                151,
+                231,
+                85,
+                90
+            )
+        }else {
+            noise = pins.map(
+                noise,
+                231,
                 1023,
-                76,
-                120
+                90,
+                110
             )
         }
         return noise;
