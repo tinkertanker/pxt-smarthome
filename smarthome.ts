@@ -9,12 +9,14 @@
 /**
  * Custom blocks
  */
-//% weight=10 color=#0fbc11 icon="\uf4c9"
-namespace smarthomekit {
-    
+//% weight=10 color=#0fbc11 icon="\uf015"
+namespace smarthome {
+
+    let Reference_VOLTAGE = 3100
+
     /**
     * TODO: get soil moisture(0~100)
-    * @param soilmoisturepin describe parameter here, eg: AnalogPin.P2
+    * @param soilmoisturepin describe parameter here, eg: AnalogPin.P1
     */
     //% blockId="readsoilmoisture" block="read soil moisture(0~100) at pin %soilhumiditypin"
     export function ReadSoilHumidity(soilmoisturepin: AnalogPin): number {
@@ -29,15 +31,14 @@ namespace smarthomekit {
         );
         soilmoisture = voltage;
         return soilmoisture;
-    }      
-    
+    }
+
     /**
     * TODO: get TMP36 Temperature(℃)
-    * @param temppin describe parameter here, eg: AnalogPin.P0
+    * @param temppin describe parameter here, eg: AnalogPin.P1
     */
     //% blockId="readtemp" block="read temperature(℃) at pin %temppin"
 
-    /*
     export function ReadTemperature(temppin: AnalogPin): number {
         let voltage = 0;
         let Temperature = 0;
@@ -46,17 +47,17 @@ namespace smarthomekit {
             0,
             1023,
             0,
-            reference_voltage
+            Reference_VOLTAGE
         );
         Temperature = (voltage - 500) / 10;
         return Temperature;
     }
-    */    
-    
-    
+
+
+
     /** 
     * TODO: get noise(dB)
-    * @param noisepin describe parameter here, eg: AnalogPin.P4
+    * @param noisepin describe parameter here, eg: AnalogPin.P1
     */
     //% blockId="readnoise" block="read noise(dB) at pin %noisepin"
     export function ReadNoise(noisepin: AnalogPin): number {
@@ -126,9 +127,9 @@ namespace smarthomekit {
             )
         }
         return noise;
-    } 
+    }
 
-   
+
 
 
 }
