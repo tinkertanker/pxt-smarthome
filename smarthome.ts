@@ -4,59 +4,89 @@
  * Read more at https://makecode.microbit.org/blocks/custom
  */
 
-enum Distance_Unit {
-    //% block="mm" enumval=0
-    Distance_Unit_mm,
-
-    //% block="cm" enumval=1
-    Distance_Unit_cm,
-
-    //% block="inch" enumval=2
-    Distance_Unit_inch,
-}
 
 
 /**
  * Custom blocks
  */
-//% weight=10 color=#0fbc11 icon="\uf140"
-namespace sonarbit {
-
-    /**
-    * get Ultrasonic distance
+//% weight=10 color=#0fbc11 icon="\uf4c9"
+namespace smarthomekit {
+    
+    /** 
+    * TODO: get noise(dB)
+    * @param noisepin describe parameter here, eg: AnalogPin.P4
     */
-    //% blockId=sonarbit block="Ultrasonic distance in unit %distance_unit |at|pin %pin"
-    //% weight=10
-    export function sonarbit_distance(distance_unit: Distance_Unit, pin: DigitalPin): number {
-
-        // send pulse
-        pins.setPull(pin, PinPullMode.PullNone);
-        pins.digitalWritePin(pin, 0);
-        control.waitMicros(2);
-        pins.digitalWritePin(pin, 1);
-        control.waitMicros(10);
-        pins.digitalWritePin(pin, 0);
-
-        // read pulse
-        let d = pins.pulseIn(pin, PulseValue.High, 23000);  // 8 / 340 = 
-        let distance = d * 10 * 5 / 3 / 58;
-
-
-        switch (distance_unit) {
-            case 0:
-                return distance //mm
-                break;
-            case 1:
-                return distance / 10  //cm
-                break;
-            case 2:
-                return distance / 25  //inch
-                break;
-            default:
-                return 0
-
+    //% blockId="readnoise" block="read noise(dB) at pin %noisepin"
+    export function ReadNoise(noisepin: AnalogPin): number {
+        let level = 0
+        let voltage = 0
+        let noise = 0
+        let h = 0
+        let l = 0
+        let sumh = 0
+        let suml = 0
+        for (let i = 0; i < 1000; i++) {
+            level = level + pins.analogReadPin(noisepin)
         }
+        level = level / 1000
+        for (let i = 0; i < 1000; i++) {
+            voltage = pins.analogReadPin(noisepin)
+            if (voltage >= level) {
+                h += 1
+                sumh = sumh + voltage
+            } else {
+                l += 1
+                suml = suml + voltage
+            }
+        }
+        if (h == 0) {
+            sumh = level
+        } else {
+            sumh = sumh / h
+        }
+        if (l == 0) {
+            suml = level
+        } else {
+            suml = suml / l
+        }
+        noise = sumh - suml
+        if (noise <= 28) {
+            noise = pins.map(
+                noise,
+                0,
+                28,
+                15,
+                55
+            )
+        } else if (noise <= 70) {
+            noise = pins.map(
+                noise,
+                28,
+                70,
+                55,
+                64
+            )
+        } else if (noise <= 229) {
+            noise = pins.map(
+                noise,
+                70,
+                229,
+                64,
+                76
+            )
+        } else {
+            noise = pins.map(
+                noise,
+                229,
+                1023,
+                76,
+                120
+            )
+        }
+        return noise;
+    } 
 
-    }
+   
+
 
 }
