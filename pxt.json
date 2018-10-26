@@ -4,7 +4,9 @@
     "description": "ELECFREAKS Smarthome Kit",
     "license": "MIT",
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "OLED": "github:Tinkertanker/pxt-oled-ssd1306",
+        "NeoPixel": "github:microsoft/pxt-neopixel"
     },
     "files": [
         "README.md",
