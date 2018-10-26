@@ -4,7 +4,13 @@
  * Read more at https://makecode.microbit.org/blocks/custom
  */
 
+enum TMP36Type {
+    //% block="(℃)" enumval=0
+    TMP36_temperature_C,
 
+    //% block="(℉)" enumval=1
+    TMP36_temperature_F,
+}
 
 /**
  * Custom blocks
@@ -37,9 +43,9 @@ namespace smarthome {
     * TODO: get TMP36 Temperature(℃)
     * @param temppin describe parameter here, eg: AnalogPin.P1
     */
-    //% blockId="readtemp" block="read temperature(℃) at pin %temppin"
+    //% blockId="readtemp" block="read temperature %tmp36type|at pin %temppin"
 
-    export function ReadTemperature(temppin: AnalogPin): number {
+    export function ReadTemperature(tmp36type: TMP36Type,temppin: AnalogPin): number {
         let voltage = 0;
         let Temperature = 0;
         voltage = pins.map(
@@ -50,7 +56,17 @@ namespace smarthome {
             Reference_VOLTAGE
         );
         Temperature = (voltage - 500) / 10;
-        return Temperature;
+
+        switch (tmp36type) {
+            case 0:
+                return Temperature
+                break;
+            case 1:
+                return Temperature* 9 / 5 + 32
+                break;
+            default:
+                return 0
+        }
     }
 
 
