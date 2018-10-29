@@ -19,12 +19,39 @@ enum TMP36Type {
 namespace smarthome {
 
     let Reference_VOLTAGE = 3100
+    let crashSensorPin: DigitalPin
+
+    /**
+    * TODO: Crash Sensor Setup
+    */
+    //% blockId=octopus_crashsetup  blockGap=10
+    //% block="Setup crash sensor at pin %crashpin"
+    export function crashSensorSetup(crashpin: DigitalPin): void {
+        crashSensorPin = crashpin;
+        pins.setPull(crashpin, PinPullMode.PullUp)
+    }
+
+
+
+    /**
+    * TODO: Checks whether the crash sensor is currently pressed.
+    */
+    //% blockId=octopus_crash  blockGap=30
+    //% block="crash sensor pressed"
+    export function crashSensor(): boolean {
+        let a: number = pins.digitalReadPin(crashSensorPin);
+        if (a == 0) {
+            return true;
+        } else return false;
+    }
+
+
 
     /**
     * TODO: get soil moisture(0~100%)
     * @param soilmoisturepin describe parameter here, eg: AnalogPin.P1
     */
-    //% blockId="readsoilmoisture" block="read soil moisture(0~100) at pin %soilhumiditypin"
+    //% blockId="readsoilmoisture" block="value of soil moisture(0~100) at pin %soilhumiditypin"
     export function ReadSoilHumidity(soilmoisturepin: AnalogPin): number {
         let voltage = 0;
         let soilmoisture = 0;
@@ -39,13 +66,35 @@ namespace smarthome {
         return soilmoisture;
     }
 
+
+    /**
+    * TODO: get light intensity(0~100%)
+    * @param soilmoisturepin describe parameter here, eg: AnalogPin.P1
+    */
+    //% blockId="readsoilmoisture" block="value of light intensity(0~100) at pin %lightintensitypin"
+    export function ReadLightIntensity(lightintensitypin: AnalogPin): number {
+        let voltage = 0;
+        let lightintensity = 0;
+        voltage = pins.map(
+            pins.analogReadPin(lightintensitypin),
+            0,
+            1023,
+            0,
+            100
+        );
+        lightintensity = voltage;
+        return lightintensity;
+    }
+
+
+
+
     /**
     * TODO: get TMP36 Temperature(℃)
     * @param temppin describe parameter here, eg: AnalogPin.P1
     */
-    //% blockId="readtemp" block="read temperature %tmp36type|at pin %temppin"
-
-    export function ReadTemperature(tmp36type: TMP36Type,temppin: AnalogPin): number {
+    //% blockId="readtemp" block="value of temperature %tmp36type|at pin %temppin"
+    export function ReadTemperature(tmp36type: TMP36Type, temppin: AnalogPin): number {
         let voltage = 0;
         let Temperature = 0;
         voltage = pins.map(
@@ -62,7 +111,7 @@ namespace smarthome {
                 return Temperature
                 break;
             case 1:
-                return Temperature* 9 / 5 + 32
+                return Temperature * 9 / 5 + 32
                 break;
             default:
                 return 0
@@ -75,7 +124,7 @@ namespace smarthome {
     * TODO: get noise(dB)
     * @param noisepin describe parameter here, eg: AnalogPin.P1
     */
-    //% blockId="readnoise" block="read noise(dB) at pin %noisepin"
+    //% blockId="readnoise" block="value of noise(dB) at pin %noisepin"
     export function ReadNoise(noisepin: AnalogPin): number {
         let level = 0
         let voltage = 0
@@ -173,7 +222,7 @@ namespace smarthome {
                 85,
                 90
             )
-        }else {
+        } else {
             noise = pins.map(
                 noise,
                 231,
@@ -182,7 +231,7 @@ namespace smarthome {
                 120
             )
         }
-        noise = Math.round(noise) 
+        noise = Math.round(noise)
         return noise
     }
 
@@ -190,3 +239,4 @@ namespace smarthome {
 
 
 }
+ 
