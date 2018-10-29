@@ -179,7 +179,7 @@ namespace smarthome {
                 231,
                 1023,
                 90,
-                130
+                120
             )
         }
         noise = Math.round(noise) 
