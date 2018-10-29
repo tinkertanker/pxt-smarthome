@@ -179,7 +179,7 @@ namespace smarthome {
                 231,
                 1023,
                 90,
-                110
+                130
             )
         }
         return noise;
