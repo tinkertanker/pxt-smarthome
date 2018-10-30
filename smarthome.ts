@@ -69,9 +69,9 @@ namespace smarthome {
 
     /**
     * TODO: get light intensity(0~100%)
-    * @param soilmoisturepin describe parameter here, eg: AnalogPin.P1
+    * @param lightintensitypin describe parameter here, eg: AnalogPin.P1
     */
-    //% blockId="readsoilmoisture" block="value of light intensity(0~100) at pin %lightintensitypin"
+    //% blockId="readlightintensity" block="value of light intensity(0~100) at pin %lightintensitypin"
     export function ReadLightIntensity(lightintensitypin: AnalogPin): number {
         let voltage = 0;
         let lightintensity = 0;
@@ -90,7 +90,7 @@ namespace smarthome {
 
 
     /**
-    * TODO: get TMP36 Temperature(℃)
+    * TODO: get TMP36 Temperature(℃ or ℉)
     * @param temppin describe parameter here, eg: AnalogPin.P1
     */
     //% blockId="readtemp" block="value of temperature %tmp36type|at pin %temppin"
@@ -239,4 +239,4 @@ namespace smarthome {
 
 
 }
- 
+
