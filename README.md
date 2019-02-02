@@ -1,7 +1,7 @@
-# Smarthome kit Package
-This ElecFreaks smarthome kit package was developed by [ElecFreaks](https://www.elecfreaks.com/) with minor assistance from [Tinkercademy](https://tinkercademy.com/).
+# Smart Home kit Package
+This ELECFREAKS Smart Home kit package was developed by [ELECFREAKS](https://www.elecfreaks.com/) with minor assistance from [Tinkercademy](https://tinkercademy.com/).
 
-# Smarthome Kit introduction
+# Smart Home Kit introduction
 Smarthome Kit is a product about smart home project base on micro:bit which is developed by ELECFREAKS.      
 We selected executed components commonly used at home as TMP36 temperature sensor, sound sensor, crash sensor, servo, motor. You can build scene like windowsill, wardrobe and fish tank, create yourself smart sweet home and programming to intelligently driving them using micro:bit.     
 Smarthome Kit is what makes life more practical and playing with it is what makes life more interesting.  
