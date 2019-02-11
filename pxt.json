@@ -1,7 +1,7 @@
 {
     "name": "smarthome-kit",
-    "version": "0.0.10",
-    "description": "ELECFREAKS Smarthome Kit",
+    "version": "1.0.0",
+    "description": "ELECFREAKS Smart Home Kit",
     "license": "MIT",
     "dependencies": {
         "core": "*",
@@ -16,5 +16,5 @@
         "tests.ts"
     ],
     "public": true,
-    "installedVersion": "github:elecfreaks/pxt-smarthome#v0.0.10"
+    "installedVersion": "github:elecfreaks/pxt-smarthome#v1.0.0"
 }

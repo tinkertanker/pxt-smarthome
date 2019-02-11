@@ -63,7 +63,7 @@ namespace smarthome {
             100
         );
         soilmoisture = voltage;
-        return soilmoisture;
+        return Math.round(soilmoisture);
     }
 
 
@@ -83,7 +83,7 @@ namespace smarthome {
             100
         );
         lightintensity = voltage;
-        return lightintensity;
+        return Math.round(lightintensity);
     }
 
 
@@ -97,6 +97,7 @@ namespace smarthome {
     export function ReadTemperature(tmp36type: TMP36Type, temppin: AnalogPin): number {
         let voltage = 0;
         let Temperature = 0;
+        pins.digitalWritePin(DigitalPin.P0, 0)
         voltage = pins.map(
             pins.analogReadPin(temppin),
             0,
@@ -108,10 +109,10 @@ namespace smarthome {
 
         switch (tmp36type) {
             case 0:
-                return Temperature
+                return Math.round(Temperature)
                 break;
             case 1:
-                return Temperature * 9 / 5 + 32
+                return Math.round(Temperature * 9 / 5 + 32)
                 break;
             default:
                 return 0
@@ -133,6 +134,7 @@ namespace smarthome {
         let l = 0
         let sumh = 0
         let suml = 0
+        pins.digitalWritePin(DigitalPin.P0, 0)
         for (let i = 0; i < 1000; i++) {
             level = level + pins.analogReadPin(noisepin)
         }
@@ -232,7 +234,7 @@ namespace smarthome {
             )
         }
         noise = Math.round(noise)
-        return noise
+        return Math.round(noise)
     }
 
 
