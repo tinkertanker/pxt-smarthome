@@ -6,7 +6,7 @@
     "dependencies": {
         "core": "*",
         "OLED": "github:Tinkertanker/pxt-oled-ssd1306",
-        "NeoPixel": "github:microsoft/pxt-neopixel"
+        "neopixel": "github:kittenbot/pxt-neopixel#v0.6.13"
     },
     "files": [
         "README.md",
