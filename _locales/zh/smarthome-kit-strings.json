@@ -4,7 +4,7 @@
   "smarthome.ReadLightIntensity|block": "连接至 %lightintensitypin 的光线传感器返回值(0~100)",
   "smarthome.ReadNoise|block": "连接至 %noisepin 的噪声传感器返回值(dB)",
   "smarthome.ReadSoilHumidity|block": "连接至 %soilhumiditypin 的土壤湿度传感器返回值(0~100)",
-  "smarthome.ReadTemperature|block": "连接至 %temppin|的TMP36温度传感器返回的 %tmp36type",
+  "smarthome.ReadTemperature|block": "TMP36温度传感器返回 %tmp36type|连接至 %temppin",
   "smarthome.crashSensorSetup|block": "设置碰撞传感器的连接到 %crashpin",
   "smarthome.crashSensor|block": "碰撞传感器被按下",
   "smarthome|block": "智能家庭",
