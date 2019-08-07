@@ -1,0 +1,14 @@
+{
+  "TMP36Type": "Use this file to define custom functions and blocks.\r\nRead more at https://makecode.microbit.org/blocks/custom",
+  "smarthome": "Custom blocks",
+  "smarthome.ReadLightIntensity": "TODO: get light intensity(0~100%)",
+  "smarthome.ReadLightIntensity|param|lightintensitypin": "describe parameter here, eg: AnalogPin.P1",
+  "smarthome.ReadNoise": "TODO: get noise(dB)",
+  "smarthome.ReadNoise|param|noisepin": "describe parameter here, eg: AnalogPin.P1",
+  "smarthome.ReadSoilHumidity": "TODO: get soil moisture(0~100%)",
+  "smarthome.ReadSoilHumidity|param|soilmoisturepin": "describe parameter here, eg: AnalogPin.P1",
+  "smarthome.ReadTemperature": "TODO: get TMP36 Temperature(℃ or ℉)",
+  "smarthome.ReadTemperature|param|temppin": "describe parameter here, eg: AnalogPin.P1",
+  "smarthome.crashSensor": "TODO: Checks whether the crash sensor is currently pressed.",
+  "smarthome.crashSensorSetup": "TODO: Crash Sensor Setup"
+}

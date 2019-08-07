@@ -1,0 +1,12 @@
+{
+  "TMP36Type.TMP36_temperature_C|block": "(℃)",
+  "TMP36Type.TMP36_temperature_F|block": "(℉)",
+  "smarthome.ReadLightIntensity|block": "value of light intensity(0~100) at pin %lightintensitypin",
+  "smarthome.ReadNoise|block": "value of noise(dB) at pin %noisepin",
+  "smarthome.ReadSoilHumidity|block": "value of soil moisture(0~100) at pin %soilhumiditypin",
+  "smarthome.ReadTemperature|block": "value of temperature %tmp36type|at pin %temppin",
+  "smarthome.crashSensorSetup|block": "Setup crash sensor at pin %crashpin",
+  "smarthome.crashSensor|block": "crash sensor pressed",
+  "smarthome|block": "smarthome",
+  "{id:category}Smarthome": "Smarthome"
+}

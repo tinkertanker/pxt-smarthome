@@ -1,0 +1,12 @@
+{
+  "TMP36Type.TMP36_temperature_C|block": "摄氏度(℃)",
+  "TMP36Type.TMP36_temperature_F|block": "华氏度(℉)",
+  "smarthome.ReadLightIntensity|block": "连接至 %lightintensitypin 的光线传感器返回值(0~100)",
+  "smarthome.ReadNoise|block": "连接至 %noisepin 的噪声传感器返回值(dB)",
+  "smarthome.ReadSoilHumidity|block": "value of soil moisture(0~100) at pin连接至 %soilhumiditypin 的土壤湿度传感器返回值(0~100)",
+  "smarthome.ReadTemperature|block": "连接至 %temppin 的TMP36温度传感器的返回值",
+  "smarthome.crashSensorSetup|block": "设置碰撞传感器的连接为 %crashpin",
+  "smarthome.crashSensor|block": "碰撞传感器被按下",
+  "smarthome|block": "智能家庭",
+  "{id:category}Smarthome": "智能家庭"
+}
