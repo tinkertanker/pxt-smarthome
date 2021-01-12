@@ -17,6 +17,13 @@ namespace smarthome {
         //% block="humidity(0~100)" enumval=1
         DHT11_humidity,
     }
+    export enum RelayStateList {
+        //% block="NC|Close NO|Open"
+        On,
+
+        //% block="NC|Open NO|Close"
+        Off
+    }
     /**
     * TODO: Crash Sensor Setup
     */
@@ -295,6 +302,21 @@ namespace smarthome {
             speed = 0
         }
     }
-
+    /**
+    * toggle Relay
+    */
+    //% blockId=Relay block="Relay %pin toggle to %Relaystate"
+    //% Relaystate.fieldEditor="gridpicker"
+    //% Relaystate.fieldOptions.columns=1
+    export function Relay(pin: DigitalPin, Relaystate: RelayStateList): void {
+        switch (Relaystate) {
+            case RelayStateList.On:
+                pins.digitalWritePin(pin, 0)
+                break;
+            case RelayStateList.Off:
+                pins.digitalWritePin(pin, 1)
+                break;
+        }
+    }
 
 }
