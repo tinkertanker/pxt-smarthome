@@ -10,7 +10,13 @@ enum TMP36Type {
 namespace smarthome {
     let Reference_VOLTAGE = 3100
     let crashSensorPin: DigitalPin
+    export enum DHT11_state {
+        //% block="temperature(℃)" enumval=0
+        DHT11_temperature_C,
 
+        //% block="humidity(0~100)" enumval=1
+        DHT11_humidity,
+    }
     /**
     * TODO: Crash Sensor Setup
     */
@@ -216,7 +222,62 @@ namespace smarthome {
         noise = Math.round(noise)
         return Math.round(noise)
     }
+    /**
+    * get dht11 temperature and humidity Value
+    * @param dht11pin describe parameter here, eg: DigitalPin.P15     
+    */
+    //% blockId="readdht11" block="DHT11 sensor %pin %dht11state value"
+    //% dht11state.fieldEditor="gridpicker" dht11state.fieldOptions.columns=1
+    export function dht11Sensor(pin: DigitalPin, dht11state: DHT11_state): number {
+        basic.pause(2000)  //两次请求之间必须间隔2000ms以上
+        pins.digitalWritePin(pin, 0)
+        basic.pause(18)
+        let i = pins.digitalReadPin(pin)
+        pins.setPull(pin, PinPullMode.PullUp);
+        switch (dht11state) {
+            case 0:
+                let dhtvalue1 = 0;
+                let dhtcounter1 = 0;
+                while (pins.digitalReadPin(pin) == 1);
+                while (pins.digitalReadPin(pin) == 0);
+                while (pins.digitalReadPin(pin) == 1);
+                for (let i = 0; i <= 32 - 1; i++) {
+                    while (pins.digitalReadPin(pin) == 0);
+                    dhtcounter1 = 0
+                    while (pins.digitalReadPin(pin) == 1) {
+                        dhtcounter1 += 1;
+                    }
+                    if (i > 15) {
+                        if (dhtcounter1 > 2) {
+                            dhtvalue1 = dhtvalue1 + (1 << (31 - i));
+                        }
+                    }
+                }
+                return ((dhtvalue1 & 0x0000ff00) >> 8);
+                break;
+            case 1:
+                while (pins.digitalReadPin(pin) == 1);
+                while (pins.digitalReadPin(pin) == 0);
+                while (pins.digitalReadPin(pin) == 1);
 
+                let value = 0;
+                let counter = 0;
+
+                for (let i = 0; i <= 8 - 1; i++) {
+                    while (pins.digitalReadPin(pin) == 0);
+                    counter = 0
+                    while (pins.digitalReadPin(pin) == 1) {
+                        counter += 1;
+                    }
+                    if (counter > 3) {
+                        value = value + (1 << (7 - i));
+                    }
+                }
+                return value;
+            default:
+                return 0;
+        }
+    }
 
 
 
