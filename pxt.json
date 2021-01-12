@@ -18,5 +18,8 @@
         "tests.ts"
     ],
     "public": true,
-    "installedVersion": "github:elecfreaks/pxt-smarthome#v1.0.0"
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
 }

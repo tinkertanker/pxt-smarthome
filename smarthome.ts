@@ -1,9 +1,3 @@
-
-/**
- * Use this file to define custom functions and blocks.
- * Read more at https://makecode.microbit.org/blocks/custom
- */
-
 enum TMP36Type {
     //% block="(℃)" enumval=0
     TMP36_temperature_C,
@@ -12,9 +6,6 @@ enum TMP36Type {
     TMP36_temperature_F,
 }
 
-/**
- * Custom blocks
- */
 //% weight=10 color=#0fbc11 icon="\uf015"
 namespace smarthome {
 
@@ -31,8 +22,6 @@ namespace smarthome {
         pins.setPull(crashpin, PinPullMode.PullUp)
     }
 
-
-
     /**
     * TODO: Checks whether the crash sensor is currently pressed.
     */
@@ -44,8 +33,6 @@ namespace smarthome {
             return true;
         } else return false;
     }
-
-
 
     /**
     * TODO: get soil moisture(0~100%)
@@ -66,7 +53,6 @@ namespace smarthome {
         return Math.round(soilmoisture);
     }
 
-
     /**
     * TODO: get light intensity(0~100%)
     * @param lightintensitypin describe parameter here, eg: AnalogPin.P1
@@ -85,9 +71,6 @@ namespace smarthome {
         lightintensity = voltage;
         return Math.round(lightintensity);
     }
-
-
-
 
     /**
     * TODO: get TMP36 Temperature(℃ or ℉)
@@ -118,8 +101,6 @@ namespace smarthome {
                 return 0
         }
     }
-
-
 
     /** 
     * TODO: get noise(dB)
@@ -241,4 +222,3 @@ namespace smarthome {
 
 
 }
-
