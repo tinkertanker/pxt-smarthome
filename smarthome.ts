@@ -278,7 +278,23 @@ namespace smarthome {
                 return 0;
         }
     }
-
+    /**
+    * toggle fans
+    */
+    //% blockId=fans block="Motor fan %pin toggle to $fanstate || speed %speed \\%"
+    //% fanstate.shadow="toggleOnOff"
+    //% speed.min=0 speed.max=100
+    //% expandableArgumentMode="toggle"
+    export function motorFan(pin: AnalogPin, fanstate: boolean, speed: number = 100): void {
+        if (fanstate) {
+            pins.analogSetPeriod(pin, 100)
+            pins.analogWritePin(pin, Math.map(speed, 0, 100, 0, 1023))
+        }
+        else {
+            pins.analogWritePin(pin, 0)
+            speed = 0
+        }
+    }
 
 
 }
