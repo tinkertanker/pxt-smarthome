@@ -357,4 +357,17 @@ namespace smarthome {
                 return 0
         }
     }
+        /**
+    * TODO: Detect soil moisture value(0~100%)
+    * @param soilmoisturepin describe parameter here, eg: DigitalRJPin.J1
+    */
+    //% blockId="PIR" block="PIR sensor %pin detects motion"
+    export function PIR(pin: DigitalPin): boolean {
+        if (pins.digitalReadPin(pin) == 1) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
 }
