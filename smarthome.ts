@@ -331,7 +331,7 @@ namespace smarthome {
     //% blockId=sonarbit block="Ultrasonic sensor pin%pinT distance %distance_unit"
     //% distance_unit.fieldEditor="gridpicker"
     //% distance_unit.fieldOptions.columns=2
-    export function ultrasoundSensor(pinT: DigitalPin.P0, distance_unit: Distance_Unit_List): number {
+    export function ultrasoundSensor(pinT: DigitalPin, distance_unit: Distance_Unit_List): number {
         pins.setPull(pinT, PinPullMode.PullNone)
         pins.digitalWritePin(pinT, 0)
         control.waitMicros(2)
