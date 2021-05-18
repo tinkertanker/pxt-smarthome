@@ -18,7 +18,7 @@
   "smarthome.dht11Sensor|block": "DHT11 温湿度传感器 %pin %dht11state 值",
   "smarthome.ledBrightness|block": "LED %pin 切换到 $ledstate || 亮度 %brightness \\%",
   "smarthome.motorFan|block": "电机风扇 %pin 切换至 $fanstate || 速度 %speed \\%",
-  "smarthome.ultrasoundSensor|block": "超声波传感器 触发%pinT 接受%pinE 距离 %distance_unit",
+  "smarthome.ultrasoundSensor|block": "超声波传感器 引脚%pinT 距离 %distance_unit",
   "smarthome|block": "智能家庭",
   "{id:category}Smarthome": "智能家庭"
 }

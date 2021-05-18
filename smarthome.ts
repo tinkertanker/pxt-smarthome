@@ -328,10 +328,10 @@ namespace smarthome {
     /**
 * get Ultrasonic distance
 */
-    //% blockId=sonarbit block="Ultrasonic sensor Trig%pinT Echo%pinE distance %distance_unit"
+    //% blockId=sonarbit block="Ultrasonic sensor pin%pinT distance %distance_unit"
     //% distance_unit.fieldEditor="gridpicker"
     //% distance_unit.fieldOptions.columns=2
-    export function ultrasoundSensor(pinT: DigitalPin,pinE:DigitalPin, distance_unit: Distance_Unit_List): number {
+    export function ultrasoundSensor(pinT: DigitalPin.P0, distance_unit: Distance_Unit_List): number {
         pins.setPull(pinT, PinPullMode.PullNone)
         pins.digitalWritePin(pinT, 0)
         control.waitMicros(2)
@@ -340,7 +340,7 @@ namespace smarthome {
         pins.digitalWritePin(pinT, 0)
 
         // read pulse
-        let d = pins.pulseIn(pinE, PulseValue.High, 25000)
+        let d = pins.pulseIn(pinT, PulseValue.High, 25000)
         let distance = d * 9 / 6 / 58
 
         if (distance > 400) {
