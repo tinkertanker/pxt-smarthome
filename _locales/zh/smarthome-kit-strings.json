@@ -19,6 +19,8 @@
   "smarthome.ledBrightness|block": "LED %pin 切换到 $ledstate || 亮度 %brightness \\%",
   "smarthome.motorFan|block": "电机风扇 %pin 切换至 $fanstate || 速度 %speed \\%",
   "smarthome.ultrasoundSensor|block": "超声波传感器 引脚%pinT 距离 %distance_unit",
+  "smarthome.UVLevel|block": "紫外线传感器 %pin 紫外线强度(0~15)",
+  "smarthome.mq3|block": "酒精传感器 %pin 浓度值(0~100)",
   "smarthome|block": "智能家庭",
   "{id:category}Smarthome": "智能家庭"
 }

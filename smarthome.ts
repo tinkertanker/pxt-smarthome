@@ -387,4 +387,30 @@ namespace smarthome {
             brightness = 0
         }
     }
+
+    //% blockId="readUVLevel" block="UV sensor %pin level(0~15)"
+    export function UVLevel(pin: AnalogPin): number {
+        let UVlevel = pins.analogReadPin(pin);
+        if (UVlevel > 625) {
+            UVlevel = 625
+        }
+        UVlevel = pins.map(
+            UVlevel,
+            0,
+            625,
+            0,
+            15
+        );
+        return Math.round(UVlevel)
+    }
+
+    //% blockId="readmq3" block="Alcohol sensor %pin value(0~100)"
+    export function mq3(pin:AnalogPin): number {
+        let mq3_value = pins.analogReadPin(pin);
+        if (mq3_value > 1000){
+            mq3_value = 1000
+        }
+        let mq3_value_map = pins.map(mq3_value,0,1000,0,100)
+        return Math.round(mq3_value_map);
+    }
 }
