@@ -19,7 +19,7 @@
   "smarthome.ledBrightness|block": "LED %pin toggle to $ledstate || brightness %brightness \\%",
   "smarthome.motorFan|block": "Motor fan %pin toggle to $fanstate || speed %speed \\%",
   "smarthome.ultrasoundSensor|block": "Ultrasonic sensor Trig%pinT Echo%pinE distance %distance_unit",
-  "smarthome.UVLevel|block": "紫外线传感器 %pin 紫外线强度(0~15)",
+  "smarthome.UVLevel|block": "UV sensor %pin level(0~15)",
   "smarthome|block": "smarthome",
   "{id:category}Smarthome": "Smarthome"
 }
