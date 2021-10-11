@@ -403,4 +403,14 @@ namespace smarthome {
         );
         return Math.round(UVlevel)
     }
+
+    //% blockId="readmq3" block="Alcohol sensor %pin value(0~100)"
+    export function mq3(pin:AnalogPin): number {
+        let mq3_value = pins.analogReadPin(pin);
+        if (mq3_value > 1000){
+            mq3_value = 1000
+        }
+        let mq3_value_map = pins.map(mq3_value,0,1000,0,100)
+        return Math.round(mq3_value_map);
+    }
 }
