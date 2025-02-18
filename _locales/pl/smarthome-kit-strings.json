@@ -7,7 +7,7 @@
     "smarthome.RelayStateList.Off|block": "NC otwórz |NO zamknij",
     "smarthome.Distance_Unit_List.Distance_Unit_cm|block": "cm",
     "smarthome.Distance_Unit_List.Distance_Unit_inch|block": "cal",
-    "smarthome|block": "(℉)",
+    "smarthome|block": "Inteligentny dom",
     "smarthome.crashSensorSetup|block": "konfiguracja czujnika zderzeniowego na pinie %crashpin",
     "smarthome.crashSensor|block": "czujnik zderzeniowy naciśnięty",
     "smarthome.ReadSoilHumidity|block": "odczyt wilgotności gleby (0~100) na pinie %soilhumiditypin",
