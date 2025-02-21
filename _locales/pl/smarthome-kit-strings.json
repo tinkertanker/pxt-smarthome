@@ -21,6 +21,6 @@
     "smarthome.ledBrightness|block": "dioda LED %pin przełącz na $ledstate || jasność %brightness \\%",
     "smarthome.UVLevel|block": "odczyt z czujnika UV %pin (0~15)",
     "smarthome.mq3|block": "odczyt poziomu alkoholu %pin (0~100)",
-    "smarthome.dht11Sensor|block": "odczyt %dht11state z czujnika DHT11 na pinie %Rjpin",
+    "smarthome.dht11Sensor|block": "odczyt z czujnika DHT11 %Rjpin parametru %dht11state",
     "{id:category}Smarthome": "Inteligentny dom"
 }
