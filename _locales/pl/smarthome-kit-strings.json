@@ -4,7 +4,7 @@
     "smarthome.DHT11_state.DHT11_temperature_C|block": "temperatury(℃)",
     "smarthome.DHT11_state.DHT11_humidity|block": "wilgotności(0~100)",
     "smarthome.RelayStateList.On|block": "NC zamknij|NO otwórz",
-    "smarthome.RelayStateList.Off|block": "NC otwórz |NO zamknij",
+    "smarthome.RelayStateList.Off|block": " NC otwórz |NO zamknij",
     "smarthome.Distance_Unit_List.Distance_Unit_cm|block": "cm",
     "smarthome.Distance_Unit_List.Distance_Unit_inch|block": "cal",
     "smarthome|block": "Inteligentny dom",
