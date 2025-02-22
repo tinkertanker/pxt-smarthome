@@ -12,7 +12,8 @@
         "README.md",
         "smarthome.ts",
         "_locales/zh/smarthome-kit-jsdoc-strings.json",
-        "_locales/zh/smarthome-kit-strings.json"
+        "_locales/zh/smarthome-kit-strings.json",
+        "_locales/pl/smarthome-kit-strings.json"
     ],
     "testFiles": [
         "tests.ts"
