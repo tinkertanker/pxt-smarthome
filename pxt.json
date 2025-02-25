@@ -5,8 +5,8 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "SSD1306_OLED": "github:tinkertanker/pxt-oled-ssd1306",
-        "neopixel": "github:elecfreaks/pxt-neopixel"
+        "SSD1306_OLED": "github:dyqiuchen/pxt-oled-ssd1306#df66de9f2da3c8ca7629d9fa258ac09a5d2a5780",
+        "neopixel": "github:dyqiuchen/pxt-neopixel#8bd311126525057e13ef1e7926bfac0acf0feb40"
     },
     "files": [
         "README.md",
