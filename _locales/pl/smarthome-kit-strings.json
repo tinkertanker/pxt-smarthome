@@ -23,4 +23,7 @@
     "smarthome.mq3|block": "poziom alkoholu pin %pin (0~100)",
     "smarthome.dht11Sensor|block": "DHT11 pin %Rjpin %dht11state",
     "{id:category}Smarthome": "Inteligentny dom"
+
+
+    
 }
